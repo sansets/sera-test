@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shop IT",
+  "titleWelcomeBackShopper": "Welcome Back Shopper",
+  "titleLogin": "Login",
+  "titleUsername": "Username",
+  "titlePassword": "Password",
+  "titleAutofill": "Autofill",
+  "titleAddToCart": "Add to Cart",
+  "titleShoppingCart": "Shopping Cart",
+  "hintInputUsername": "Enter username",
+  "hintInputPassword": "Enter password",
+  "errorInvalidLogin": "Invalid username or password"
+}
