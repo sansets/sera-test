@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:sera_test/src/data/datasources/network/constant/endpoints.dart';
 import 'package:sera_test/src/data/datasources/network/model/demo_exception.dart';
 import 'package:sera_test/src/data/models/body/carts_body.dart';
 
@@ -12,7 +13,6 @@ import 'package:sera_test/src/data/models/response/cart_response.dart';
 import 'package:sera_test/src/data/models/response/login_response.dart';
 import 'package:sera_test/src/data/models/response/product_response.dart';
 import 'package:sera_test/src/data/models/response/user_response.dart';
-import 'package:sera_test/src/util/constants/demo_endpoints.dart';
 
 class RemoteDataSource {
   Future<LoginResponse> login(LoginBody body) async {

@@ -1,6 +1,8 @@
+import 'package:sera_test/src/util/constants/demo_enviroment.dart';
+
 abstract class Endpoints {
   static Uri _createUriBaseUrl(String path) =>
-      Uri.parse("https://fakestoreapi.com$path");
+      Uri.parse("${DemoEnvironment.baseUrl}$path");
 
   static Uri login = _createUriBaseUrl('/auth/login');
   static Uri users = _createUriBaseUrl('/users');
