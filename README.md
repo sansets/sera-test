@@ -22,6 +22,7 @@ Sample json files:
 ```
 
 ### Run Project
+
 Use option `--dart-define-from-file=env/ENVIRONMENT.json` to run project.
 
 Example:
@@ -29,19 +30,11 @@ Example:
 flutter run lib/main.dart --dart-define-from-file=env/development.json
 ```
 
-## Assets
+## Lints
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+Current lints status: <img align="center" src="https://github.com/sansets/sera-test/actions/workflows/analyze.yml/badge.svg">
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
-
-## Localization
-
-This project generates localized messages based on arb files found in
-the `assets/l10n` directory.
-
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+Running lints on local:
+```
+flutter analyze
+```
