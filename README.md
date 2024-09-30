@@ -8,13 +8,26 @@ apk: https://drive.google.com/file/d/1TbigNShjohcotz39B2SCgAGz1RB4Fv8i/view?usp=
 
 ## Getting Started
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+### Setup Environment
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Create `env` directory in project's root directory
+2. Create environment-specific files in `env` directory: `development.json`, `staging.json`, `production.json`
+
+Sample json files:
+```json
+{
+    "flavor": "development/staging/production",
+    "base_url": "YOUR_BASE_URL"
+}
+```
+
+### Run Project
+Use option `--dart-define-from-file=env/ENVIRONMENT.json` to run project.
+
+Example:
+```
+flutter run lib/main.dart --dart-define-from-file=env/development.json
+```
 
 ## Assets
 
@@ -27,7 +40,7 @@ images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-awa
 ## Localization
 
 This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+the `assets/l10n` directory.
 
 To support additional languages, please visit the tutorial on
 [Internationalizing Flutter
