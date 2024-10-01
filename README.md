@@ -34,7 +34,6 @@ flutter run lib/main.dart --dart-define-from-file=env/development.json
 
 Current lints status: <img align="center" src="https://github.com/sansets/sera-test/actions/workflows/analyze.yml/badge.svg">
 
-Running lints on local:
-```
-flutter analyze
-```
+## Coverage
+
+Current coverage status: <a href="https://codecov.io/github/sansets/sera-test" ><img align="center" src="https://codecov.io/github/sansets/sera-test/graph/badge.svg?token=71KAS58GSJ"/></a>
