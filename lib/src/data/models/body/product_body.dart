@@ -7,12 +7,6 @@ class ProductBody extends Equatable {
 
   final String? id;
 
-  Map<String, dynamic> toMap() {
-    return {
-      if (id != null) 'id': id,
-    };
-  }
-
   @override
   List<Object?> get props => [
         id,

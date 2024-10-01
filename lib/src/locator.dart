@@ -1,3 +1,4 @@
+import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:sera_test/routes.dart';
 import 'package:sera_test/src/data/datasources/network/remote_data_source.dart';
@@ -16,13 +17,16 @@ void setupLocator() {
   // *Storage
   locator.registerLazySingleton(() => const FlutterSecureStorage());
 
+  // *Http
+  locator.registerLazySingleton(() => http.Client());
+
   // *Repository
   locator.registerLazySingleton<AppRepository>(
     () => AppRepositoryImpl(remoteDataSource: locator()),
   );
   // *Datasource
   locator.registerLazySingleton<RemoteDataSource>(
-    () => RemoteDataSource(),
+    () => RemoteDataSource(client: locator()),
   );
 
   setupLocatorSignIn();

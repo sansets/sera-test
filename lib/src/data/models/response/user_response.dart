@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 import 'package:sera_test/src/data/models/response/address_response.dart';
 import 'package:sera_test/src/data/models/response/name_response.dart';
@@ -23,18 +21,6 @@ class UserResponse extends Equatable {
   final AddressResponse? address;
   final String? phone;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'email': email,
-      'username': username,
-      'password': password,
-      'name': name,
-      'address': address,
-      'phone': phone,
-    };
-  }
-
   factory UserResponse.fromMap(Map<String, dynamic> map) {
     return UserResponse(
       id: map['id']?.toString() ?? '',
@@ -48,11 +34,6 @@ class UserResponse extends Equatable {
       phone: map['phone']?.toString() ?? '',
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory UserResponse.fromJson(String source) =>
-      UserResponse.fromMap(json.decode(source));
 
   @override
   List<Object?> get props => [
