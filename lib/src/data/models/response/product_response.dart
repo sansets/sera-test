@@ -22,18 +22,6 @@ class ProductResponse extends Equatable {
   final String? image;
   final RatingResponse? rating;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'price': price,
-      'category': category,
-      'description': description,
-      'image': image,
-      'rating': rating,
-    };
-  }
-
   factory ProductResponse.fromMap(Map<String, dynamic> map) {
     return ProductResponse(
       id: map['id']?.toString() ?? '',
@@ -46,8 +34,6 @@ class ProductResponse extends Equatable {
           map['rating'] == null ? null : RatingResponse.fromMap(map['rating']),
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory ProductResponse.fromJson(String source) =>
       ProductResponse.fromMap(json.decode(source));

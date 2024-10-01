@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
 class NameResponse extends Equatable {
@@ -11,24 +9,12 @@ class NameResponse extends Equatable {
   final String? firstname;
   final String? lastname;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'firstname': firstname,
-      'lastname': lastname,
-    };
-  }
-
   factory NameResponse.fromMap(Map<String, dynamic> map) {
     return NameResponse(
-      firstname: map['rate']?.toString() ?? '',
-      lastname: map['count']?.toString() ?? '',
+      firstname: map['firstname']?.toString() ?? '',
+      lastname: map['lastname']?.toString() ?? '',
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory NameResponse.fromJson(String source) =>
-      NameResponse.fromMap(json.decode(source));
 
   @override
   List<Object?> get props => [

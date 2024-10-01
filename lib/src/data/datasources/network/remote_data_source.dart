@@ -15,8 +15,12 @@ import 'package:sera_test/src/data/models/response/product_response.dart';
 import 'package:sera_test/src/data/models/response/user_response.dart';
 
 class RemoteDataSource {
+  RemoteDataSource({required this.client});
+
+  final http.Client client;
+
   Future<LoginResponse> login(LoginBody body) async {
-    final response = await http.post(
+    final response = await client.post(
       Endpoints.login,
       body: body.toMap(),
     );
@@ -26,33 +30,29 @@ class RemoteDataSource {
   }
 
   Future<List<UserResponse>> users(UsersBody body) async {
-    final response = await http.get(
+    final response = await client.get(
       Endpoints.users.replace(queryParameters: body.toMap()),
     );
 
     handleErrorResponse(response);
 
     final mapResponse = jsonDecode(response.body);
-    return mapResponse is List
-        ? List.from(mapResponse.map((e) => UserResponse.fromMap(e)))
-        : [UserResponse.fromMap(mapResponse)];
+    return List.from(mapResponse.map((e) => UserResponse.fromMap(e)));
   }
 
   Future<List<ProductResponse>> products(ProductsBody body) async {
-    final response = await http.get(
+    final response = await client.get(
       Endpoints.products.replace(queryParameters: body.toMap()),
     );
 
     handleErrorResponse(response);
 
     final mapResponse = jsonDecode(response.body);
-    return mapResponse is List
-        ? List.from(mapResponse.map((e) => ProductResponse.fromMap(e)))
-        : [ProductResponse.fromMap(mapResponse)];
+    return List.from(mapResponse.map((e) => ProductResponse.fromMap(e)));
   }
 
   Future<ProductResponse> product(ProductBody body) async {
-    final response = await http.get(
+    final response = await client.get(
       Endpoints.product(body.id.toString()),
     );
 
@@ -62,15 +62,13 @@ class RemoteDataSource {
   }
 
   Future<List<CartResponse>> carts(CartsBody body) async {
-    final response = await http.get(
+    final response = await client.get(
       Endpoints.carts(body.userId.toString()),
     );
 
     handleErrorResponse(response);
 
     final mapResponse = jsonDecode(response.body);
-    return mapResponse is List
-        ? List.from(mapResponse.map((e) => CartResponse.fromMap(e)))
-        : [CartResponse.fromMap(mapResponse)];
+    return List.from(mapResponse.map((e) => CartResponse.fromMap(e)));
   }
 }
